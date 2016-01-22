@@ -56,7 +56,7 @@ class syntax_plugin_bugzillalinks extends DokuWiki_Syntax_Plugin {
 	 * @param Doku_Handler $handler
 	 * @return array
 	 */
-	public function handle($match, $state, $pos, &$handler){
+	public function handle($match, $state, $pos, Doku_Handler $handler){
         if ( preg_match('/^[Bb]ug\s*(\d+)$/', $match, $bugMatch) ) {
 	      return array($match, $bugMatch[1]);
         }
@@ -71,7 +71,7 @@ class syntax_plugin_bugzillalinks extends DokuWiki_Syntax_Plugin {
 	 * @param array $data
 	 * @return boolean
 	 */
-	public function render($mode, &$renderer, $data) {
+	public function render($mode, Doku_Renderer $renderer, $data) {
 		// Only render to xhtml
 		if($mode != 'xhtml') return false;
 
